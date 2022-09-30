@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Писатели Online</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="search_button">Найти</string>
+    <string name="author_name_filler">Author Name</string>
+    <string name="author_photo_filler">Author Photo</string>
+    <string name="author_birthdate_filler">Birth Date: 01.01.1000</string>
+    <string name="author">Писатель</string>
+    <string name="date">Дата рождения</string>
+    <string name="text_placeholder">Placeholder</string>
+    <string name="books_button_text">Книги</string>
+    <string name="photos_button_text">Фотографии</string>
+</resources>
