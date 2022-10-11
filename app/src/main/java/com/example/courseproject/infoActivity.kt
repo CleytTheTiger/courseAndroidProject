@@ -21,6 +21,8 @@ class InfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoBinding.inflate(layoutInflater)
+        binding.authorName.setLines(3)
+        binding.authorName.maxLines = 3
         binding.progressBarInfo.visibility = View.VISIBLE
         setContentView(binding.root)
         val key : String = intent.extras?.getString("key").toString()
@@ -28,13 +30,12 @@ class InfoActivity : AppCompatActivity() {
         val authName = findViewById<TextView>(R.id.author_name)
         val authDesc = findViewById<TextView>(R.id.author_desc)
         val authPhoto = findViewById<ImageView>(R.id.author_photo)
-        val booksButton = findViewById<Button>(R.id.books_button)
 
         authName.textAlignment = View.TEXT_ALIGNMENT_CENTER
         authDesc.textAlignment = View.TEXT_ALIGNMENT_CENTER
         val url = "https://openlibrary.org/authors/${key}.json"
         var imageID : String
-        var imageURL : String
+        var imageURL = mutableListOf<String>()
         Log.e("URL ----- ",""+url)
         val requestQueue = Volley.newRequestQueue(this@InfoActivity)
         binding.booksButton.setOnClickListener {
@@ -54,14 +55,14 @@ class InfoActivity : AppCompatActivity() {
                     val name = response.getString("name")
                     val desc = response.getString("bio")
                     imageID = images[0].toString()
-                    imageURL = "https://covers.openlibrary.org/a/id/$imageID.jpg"
+                    imageURL.add("https://covers.openlibrary.org/a/id/$imageID.jpg")
+                    authName.text = name
+                    authDesc.text = desc
                     Picasso.with(this@InfoActivity)
-                        .load(imageURL)
+                        .load(imageURL[0])
                         .placeholder(androidx.appcompat.R.drawable.abc_btn_colored_material)
                         .error(R.drawable.ic_launcher_background)
                         .into(authPhoto)
-                    authName.text = name
-                    authDesc.text = desc
                     Log.e("Name ----- ",""+name)
                     Log.e("Bio ----- ",""+desc)
                     Log.e("Image ----- ",""+imageID)
@@ -78,6 +79,7 @@ class InfoActivity : AppCompatActivity() {
             }
         )
         requestQueue.add(jsonObjectRequest)
+
         binding.progressBarInfo.visibility = View.INVISIBLE
     }
 }

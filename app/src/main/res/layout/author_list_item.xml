@@ -1,34 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="5dp"
     tools:ignore="MissingClass">
 
-    <TextView
-        android:id="@+id/author_name_textview"
-        android:layout_width="260dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:height="32dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:paddingLeft="5dp"
-        android:paddingTop="7dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="7dp"
-        android:text="@string/author_name_filler"
-        android:textSize="16sp" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/dateofbirth_textview"
+        <TextView
+            android:id="@+id/author_name_textview"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:height="32dp"
+            android:background="#96d99c"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:lines="2"
+            android:paddingLeft="5dp"
+            android:paddingTop="7dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="7dp"
+            android:text="@string/author_name_filler"
+            android:textColor="#004D40"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dateofbirth_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:height="32dp"
+            android:background="#96d99c"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="5dp"
+            android:paddingTop="7dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="7dp"
+            android:text="@string/author_birthdate_filler"
+            android:textColor="#004D40"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/author_item_card"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:height="32dp"
-        android:fontFamily="sans-serif"
-        android:paddingLeft="5dp"
-        android:paddingTop="7dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="7dp"
-        android:text="@string/author_birthdate_filler"
-        android:textSize="11sp" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="#8cc724"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck">
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

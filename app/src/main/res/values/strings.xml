@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Писатели Online</string>
-    <string name="refresh_button">Refresh</string>
+    <string name="refresh_button">/</string>
     <string name="search_button">Найти</string>
     <string name="author_name_filler">Author Name</string>
     <string name="author_photo_filler">Author Photo</string>

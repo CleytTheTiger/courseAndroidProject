@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class CustomRecyclerAdapter(private val names: List<String>, private val dates: List<String>) :
@@ -22,6 +23,7 @@ class CustomRecyclerAdapter(private val names: List<String>, private val dates: 
     class MyViewHolder (itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val authorText: TextView = itemView.findViewById(R.id.author_name_textview)
         val birthdateView: TextView = itemView.findViewById(R.id.dateofbirth_textview)
+        val authorCard: CardView = itemView.findViewById(R.id.author_item_card)
 
         init {
             itemView.setOnClickListener {
